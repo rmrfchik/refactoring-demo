@@ -74,7 +74,7 @@ public class TestCustomer {
         mickey.addRental(rentalRegularLong);
 
         final Movie regularShort = new Movie("regularshort", PriceCodes.Regular);
-        final Rental rentalRegularShort = new Rental(regularLong, 1);
+        final Rental rentalRegularShort = new Rental(regularShort, 1);
         mickey.addRental(rentalRegularShort);
 
         final Movie newRelease = new Movie("newrelease", PriceCodes.NewRelease);
@@ -97,7 +97,7 @@ public class TestCustomer {
         final String expectedInvoice
                 = "Rental record for mickey\n"
                 + "	regular	3.5\n"
-                + "	regular	2.0\n"
+                + "	regularshort	2.0\n"
                 + "	newrelease	6.0\n"
                 + "	newreleaseshort	3.0\n"
                 + "	child	1.5\n"

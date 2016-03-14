@@ -35,9 +35,20 @@ public class TestMovie {
     }
 
     @Test
-    public void testMovie()
+    public void testCtor()
     {
-        Movie regularMovie=new Movie("regular", PriceCodes.Regular);
+        final Movie regularMovie=new Movie("regular", PriceCodes.Regular);
         assertEquals(PriceCodes.Regular, regularMovie.getPriceCode());
+        assertEquals("regular", regularMovie.getTitle());
+        
+    }
+    
+    @Test
+    public void testChangePriceCode()
+    {
+        final Movie changePriceCodeMoview=new Movie("pricechanged", PriceCodes.Childrens);
+        assertEquals(PriceCodes.Childrens, changePriceCodeMoview.getPriceCode());
+        changePriceCodeMoview.setPriceCode(PriceCodes.Regular);
+        assertEquals(PriceCodes.Regular, changePriceCodeMoview.getPriceCode());
     }
 }

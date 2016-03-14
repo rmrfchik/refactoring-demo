@@ -70,26 +70,25 @@ public class TestCustomer {
         assertEquals("mickey", mickey.getName());
 
         final Movie regular = new Movie("regular", PriceCodes.Regular);
-        final Rental rentalRegular = new Rental(regular, 1);
+        final Rental rentalRegular = new Rental(regular, 3);
         mickey.addRental(rentalRegular);
 
         final Movie newRelease = new Movie("newrelease", PriceCodes.NewRelease);
-        final Rental rentalNewRelease = new Rental(newRelease, 1);
+        final Rental rentalNewRelease = new Rental(newRelease, 2);
         mickey.addRental(rentalNewRelease);
 
         final Movie child = new Movie("child", PriceCodes.Childrens);
-        final Rental rentalChild = new Rental(child, 1);
+        final Rental rentalChild = new Rental(child, 4);
         mickey.addRental(rentalChild);
 
         final String invoice = mickey.Statement();
         final String expectedInvoice
                 = "Rental record for mickey\n"
-                + "	regular	2.0\n"
-                + "	newrelease	3.0\n"
+                + "	regular	3.5\n"
+                + "	newrelease	6.0\n"
                 + "	child	1.5\n"
-                + "Amount owed is 6.5\n"
-                + "You earned 3 frequent renter points.";
-        System.out.println(invoice);
+                + "Amount owed is 11.0\n"
+                + "You earned 4 frequent renter points.";
         assertEquals(expectedInvoice, invoice);
     }
 }
